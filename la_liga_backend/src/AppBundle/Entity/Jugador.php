@@ -42,14 +42,6 @@ class Jugador
     private $dorsal;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="posicion", type="string", length=10)
-     */
-    private $posicion;
-
-
-    /**
      * Get id
      *
      * @return int
@@ -105,30 +97,6 @@ class Jugador
     public function getDorsal()
     {
         return $this->dorsal;
-    }
-
-    /**
-     * Set posicion
-     *
-     * @param string $posicion
-     *
-     * @return Jugador
-     */
-    public function setPosicion($posicion)
-    {
-        $this->posicion = $posicion;
-
-        return $this;
-    }
-
-    /**
-     * Get posicion
-     *
-     * @return string
-     */
-    public function getPosicion()
-    {
-        return $this->posicion;
     }
 
     /**

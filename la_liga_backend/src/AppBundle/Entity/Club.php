@@ -105,7 +105,7 @@ class Club
     }
 
     /**
-     * Add jugadore
+     * Add jugador
      *
      * @param \AppBundle\Entity\Jugador $jugador
      *
@@ -119,7 +119,7 @@ class Club
     }
 
     /**
-     * Remove jugadore
+     * Remove jugador
      *
      * @param \AppBundle\Entity\Jugador $jugador
      */
