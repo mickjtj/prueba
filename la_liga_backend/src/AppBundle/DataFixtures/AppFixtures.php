@@ -22,8 +22,8 @@ class AppFixtures extends Fixture
                 $jugador = new Jugador();
                 $jugador->setNombre('Jugador ' . $x);
                 $jugador->setDorsal($x);
+                $jugador->setClub($club);
                 $manager->persist($jugador);
-                $club->addJugador($jugador);
             }
 
             $manager->persist($club);
