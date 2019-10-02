@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 use AppBundle\Entity\Club;
+use AppBundle\Entity\Jugador;
 
 /**
  * @Route("/api")
@@ -21,28 +22,27 @@ class ApiController extends Controller
         $clubes = $clubRepo->createQueryBuilder('c')
                             ->orderBy('c.nombre', 'ASC')
                             ->getQuery()
-                            ->getArrayResult();    
+                            ->getArrayResult();
         
         return $clubes;
     }
 
     /**
-     * @Route("/get-jugadores")
+     * @Route("/get-jugadores/{club_id}"), requirements={"club"="\d+"}
      */
-    public function jugadoresAction()
+    public function getJugadoresAction($club_id)
     {
-        $clubes = array("Clubes" => array(
-            array(
-                "nombre"   => "Real Madrid",
-                "estadio" => "Santiago Bernabéu"
-            ),
-            array(
-                "nombre"   => "Atlético de Madrid",
-                "estadio" => "Wanda Metropolitano"
-            )));
-    
-        
-        return $clubes;
+        $clubRepo = $this->getDoctrine()->getRepository(Club::class);
+        $club = $clubRepo->find($club_id);
+        $jugadorRepo = $this->getDoctrine()->getRepository(Jugador::class);
+        $jugadores = $club->getJugadores();
+        $jugadores = $jugadorRepo->createQueryBuilder('j')
+                                ->where('j.club = :club')
+                                ->setParameter(':club', $club)
+                                ->orderBy('j.dorsal', 'ASC')
+                                ->getQuery()
+                                ->getArrayResult();        
+        return $jugadores;
     }
 
 }
