@@ -13,26 +13,21 @@ use AppBundle\Entity\Club;
 class ApiController extends Controller
 {
     /**
-     * @Route("/index")
+     * @Route("/get-clubes")
      */
-    public function indexAction()
+    public function getClubesAction()
     {
-        $clubes = array("Clubes" => array(
-            array(
-                "nombre"   => "Real Madrid",
-                "estadio" => "Santiago Bernabéu"
-            ),
-            array(
-                "nombre"   => "Atlético de Madrid",
-                "estadio" => "Wanda Metropolitano"
-            )));
-    
+        $clubRepo = $this->getDoctrine()->getRepository(Club::class);
+        $clubes = $clubRepo->createQueryBuilder('c')
+                            ->orderBy('c.nombre', 'ASC')
+                            ->getQuery()
+                            ->getArrayResult();    
         
         return $clubes;
     }
 
     /**
-     * @Route("/jugadores")
+     * @Route("/get-jugadores")
      */
     public function jugadoresAction()
     {
