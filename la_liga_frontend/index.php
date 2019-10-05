@@ -6,7 +6,7 @@ require_once __DIR__.'/bootstrap.php';
 $clubes = datos();
 
 // Render our view
-echo $twig->render('index.html', ['clubes' => $clubes] );
+echo $twig->render('/index/index.html', ['clubes' => $clubes] );
 
 function datos()
 {

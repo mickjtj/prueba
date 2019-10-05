@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             // FOSRestBundle
             new FOS\RestBundle\FOSRestBundle(),
+            // Nelmio Cors
+            new Nelmio\CorsBundle\NelmioCorsBundle(),
             
         ];
         
