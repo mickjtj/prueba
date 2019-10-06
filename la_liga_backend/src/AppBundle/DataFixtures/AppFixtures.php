@@ -11,14 +11,14 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        // Generar 20 clubes
-        for ($i = 1; $i <= 20; $i++) {
+        // Generar 10 clubes
+        for ($i = 1; $i <= 10; $i++) {
             $club = new Club();
             $club->setNombre('Club ' . $i);
             $club->setEstadio('Estadio ' . $i);
 
-            // Generar 25 jugadores para cada club
-            for ($x=1; $x <= 25; $x++) { 
+            // Generar 10 jugadores para cada club
+            for ($x=1; $x <= 10; $x++) { 
                 $jugador = new Jugador();
                 $jugador->setNombre('Jugador ' . $x);
                 $jugador->setDorsal($x);

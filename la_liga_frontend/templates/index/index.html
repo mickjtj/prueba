@@ -17,10 +17,10 @@
                 <td>{{ club.nombre }}</td>
                 <td>{{ club.estadio }}</td>
                 <td>
-                    <button type="button" class="btn btn-default btn-sm showModal" data-club="{{club.id}}">
+                    <button type="button" class="btn btn-default btn-sm showModal" data-club-id="{{club.id}}" data-club-nombre="{{club.nombre}}">
                         <span class="glyphicon glyphicon-user"></span>Ver plantilla
                     </button>
-                    <button type="button" class="btn btn-default btn-sm add-modal" data-club="{{club.id}}">
+                    <button type="button" class="btn btn-default btn-sm addModal" data-club-id="{{club.id}}" data-club-nombre="{{club.nombre}}">
                         <span class="glyphicon glyphicon-user"></span>Añadir jugador
                     </button>
                 </td>

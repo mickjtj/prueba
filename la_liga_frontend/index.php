@@ -12,7 +12,7 @@ function datos()
 {
     $curl = curl_init();
 
-    $url = URL_API . 'get-clubes';
+    $url = URL_API . 'clubes';
 
     curl_setopt($curl, CURLOPT_POST, 1);
     curl_setopt($curl, CURLOPT_URL, $url);
